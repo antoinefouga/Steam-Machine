@@ -7,8 +7,12 @@ const router = express.Router();
 /* ************************************************************************* */
 
 const itemsRouter = require("./items/router");
+const userActions = require("../../controllers/userActions");
 
 router.use("/items", itemsRouter);
+
+router.get("/users", userActions.browse);
+router.get("/users/:id", userActions.read);
 
 /* ************************************************************************* */
 
