@@ -13,6 +13,7 @@ router.use("/items", itemsRouter);
 
 router.get("/users", userActions.browse);
 router.get("/users/:id", userActions.read);
+router.post("/users/sign", userActions.add);
 
 /* ************************************************************************* */
 
