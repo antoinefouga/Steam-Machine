@@ -85,7 +85,7 @@ app.use(cookieParser());
 /* ************************************************************************* */
 
 // Import the API router
-const apiRouter = require("./routers/api/router");
+const apiRouter = require("./router");
 
 // Mount the API router under the "/api" endpoint
 app.use("/api", apiRouter);
