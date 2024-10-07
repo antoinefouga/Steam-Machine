@@ -5,7 +5,7 @@ create table user (
   firstname VARCHAR(255) NOT NULL,
   lastname VARCHAR(255) NOT NULL,
   adresss TEXT NOT NULL,
-  creat_at TIMESTAMP not null
+  creat_at TIMESTAMP
 );
 
 create table products (
@@ -15,7 +15,7 @@ create table products (
   price INT NOT NULL,
   stock INT NOT NULL,
   image VARCHAR(255) NOT NULL,
-  creat_at TIMESTAMP not null
+  creat_at TIMESTAMP
 );
 
 INSERT INTO user (email, password, firstname, lastname, adresss, creat_at) VALUES
