@@ -16,6 +16,7 @@ router.get("/products/:id", productsActions.read);
 router.get("/product", productsActions.browse);
 router.post("/product", productsActions.add);
 router.put("/product", productsActions.edit);
+router.delete("/product", productsActions.destroy);
 router.post(
   "/sign",
   middleware.verifyFields,

@@ -45,4 +45,13 @@ const edit = async (req, res, next) => {
   }
 };
 
-module.exports = { read, browse, add, edit };
+const destroy = async (req, res, next) => {
+  try {
+    await tables.products.delete(req.body.id);
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { read, browse, add, edit, destroy };
