@@ -8,9 +8,11 @@ const router = express.Router();
 
 const userActions = require("./controllers/userActions");
 const authActions = require("./controllers/authActions");
+const productsActions = require("./controllers/productActions");
 const auth = require("./services/auth");
 const middleware = require("./services/middleware");
 
+router.get("/products/:id", productsActions.read);
 router.post(
   "/sign",
   middleware.verifyFields,
@@ -25,9 +27,9 @@ router.post(
   authActions.login
 );
 
-/* ************************************************************************* */
+// router for products
 
-router.use(auth.verifyToken);
+// router.use(auth.verifyToken);
 
 router.get("/checkauth", auth.isConnected);
 router.get("/users", userActions.browse);
