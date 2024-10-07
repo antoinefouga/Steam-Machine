@@ -14,7 +14,8 @@ const middleware = require("./services/middleware");
 
 router.get("/products/:id", productsActions.read);
 router.get("/product", productsActions.browse);
-router.put("/product", productsActions.add);
+router.post("/product", productsActions.add);
+router.put("/product", productsActions.edit);
 router.post(
   "/sign",
   middleware.verifyFields,

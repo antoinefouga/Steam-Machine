@@ -31,6 +31,21 @@ class ProductsRepository extends AbstractRepository {
     );
     return result.insertId;
   }
+
+  async update(product) {
+    const [result] = await this.database.query(
+      `update ${this.table} set name = ?, description = ?, price = ?, stock = ?, image = ? where id = ?`,
+      [
+        product.name,
+        product.description,
+        product.price,
+        product.stock,
+        product.image,
+        product.id,
+      ]
+    );
+    return result.affectedRows;
+  }
 }
 
 module.exports = ProductsRepository;
