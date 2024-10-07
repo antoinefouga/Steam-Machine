@@ -13,4 +13,25 @@ const read = async (req, res, next) => {
     next(err);
   }
 };
-module.exports = { read };
+
+const browse = async (req, res, next) => {
+  try {
+    const products = await tables.products.readAll();
+    res.json(products);
+  } catch (err) {
+    next(err);
+  }
+};
+
+const add = async (req, res, next) => {
+  const product = req.body;
+
+  try {
+    const affectedRows = await tables.products.create(product);
+    res.status(201).json({ affectedRows });
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { read, browse, add };

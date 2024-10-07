@@ -13,6 +13,8 @@ const auth = require("./services/auth");
 const middleware = require("./services/middleware");
 
 router.get("/products/:id", productsActions.read);
+router.get("/product", productsActions.browse);
+router.put("/product", productsActions.add);
 router.post(
   "/sign",
   middleware.verifyFields,

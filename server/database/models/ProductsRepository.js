@@ -12,6 +12,25 @@ class ProductsRepository extends AbstractRepository {
     );
     return rows[0];
   }
+
+  async readAll() {
+    const [rows] = await this.database.query(`select * from ${this.table}`);
+    return rows;
+  }
+
+  async create(product) {
+    const [result] = await this.database.query(
+      `insert into ${this.table} (name, description, price, stock, image, creat_at) values (?, ?, ?, ?, ?, NOW())`,
+      [
+        product.name,
+        product.description,
+        product.price,
+        product.stock,
+        product.image,
+      ]
+    );
+    return result.insertId;
+  }
 }
 
 module.exports = ProductsRepository;
